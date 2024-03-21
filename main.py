@@ -35,7 +35,7 @@ pygame.mouse.set_visible(False)
 bullet_holes = []
 
 #load image for button/target
-button_image = pygame.image.load('enemy.jpeg')
+button_image = pygame.image.load('the-enemy.jpg')
 
 #generate random position
 def generate_random_position():
@@ -62,6 +62,8 @@ while game:
 
         #if abfrage ob mouse gedruckt wurde und auf dem platz gibt es ein bullethole
         if event.type == pygame.MOUSEBUTTONDOWN:
+            pygame.mixer.music.load("gunshotsound.wav")
+            pygame.mixer.music.play(0)
             bullet_holes.append(pygame.mouse.get_pos())
     for bullet_hole in bullet_holes:
         pygame.draw.circle(game_display, 'black', bullet_hole, 5)
